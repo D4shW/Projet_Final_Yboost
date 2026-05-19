@@ -1,0 +1,5 @@
+Flask==3.0.0
+requests==2.31.0
+# PyYAML — yaml.load() sans Loader est dangereux dans toutes les versions
+# On utilise une version récente pour pas faire trop louche, la vuln est dans NOTRE code
+PyYAML==6.0.1

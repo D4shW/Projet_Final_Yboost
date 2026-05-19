@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Mon dossier — ANTS-Lab{% endblock %}
+{% block content %}
+<div class="card rounded-lg p-8">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold">Dossier #{{ user.id }}</h1>
+        <span class="text-xs bg-neutral-800 px-2 py-1 rounded">{{ user.role }}</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <div class="text-xs text-neutral-500 uppercase">Identifiant</div>
+            <div class="mono">{{ user.username }}</div>
+        </div>
+        <div>
+            <div class="text-xs text-neutral-500 uppercase">Numéro de titre</div>
+            <div class="mono accent">{{ user.numero_titre }}</div>
+        </div>
+        <div>
+            <div class="text-xs text-neutral-500 uppercase">Nom</div>
+            <div>{{ user.nom }}</div>
+        </div>
+        <div>
+            <div class="text-xs text-neutral-500 uppercase">Prénom</div>
+            <div>{{ user.prenom }}</div>
+        </div>
+        <div>
+            <div class="text-xs text-neutral-500 uppercase">Date de naissance</div>
+            <div>{{ user.date_naissance }}</div>
+        </div>
+        <div class="md:col-span-2">
+            <div class="text-xs text-neutral-500 uppercase">Adresse</div>
+            <div>{{ user.adresse }}</div>
+        </div>
+        <div class="md:col-span-2">
+            <div class="text-xs text-neutral-500 uppercase">Note du dossier</div>
+            <div class="bg-neutral-900 p-3 rounded border border-neutral-800 mt-1 text-sm">
+                {{ user.note_dossier }}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-neutral-800 flex gap-3">
+        <a href="/import" class="btn-primary px-4 py-2 rounded text-sm">📥 Importer un ancien dossier</a>
+    </div>
+
+    <div class="mt-6 text-xs text-neutral-600">
+        Session sécurisée — IP détectée : <span class="mono">{{ displayed_ip }}</span>
+        <br>
+        <span class="text-neutral-700">Protection anti-énumération active : 5 requêtes/min par IP (hors plage interne).</span>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Connexion — ANTS-Lab{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto card rounded-lg p-8">
+    <h1 class="text-2xl font-bold mb-6">Connexion à votre espace</h1>
+
+    {% if error %}
+    <div class="bg-red-950 border border-red-900 text-red-300 px-4 py-2 rounded mb-4 text-sm">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" class="space-y-4">
+        <div>
+            <label class="block text-sm text-neutral-400 mb-1">Identifiant</label>
+            <input type="text" name="username" required
+                   class="input w-full px-3 py-2 rounded" autocomplete="off">
+        </div>
+        <div>
+            <label class="block text-sm text-neutral-400 mb-1">Mot de passe</label>
+            <input type="password" name="password" required
+                   class="input w-full px-3 py-2 rounded" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary w-full py-2 rounded">Se connecter</button>
+    </form>
+
+    <p class="text-xs text-neutral-500 mt-6 text-center">
+        Pas de compte ? <a href="#" class="accent">Créer un compte</a> (indisponible — migration en cours)
+    </p>
+</div>
+{% endblock %}

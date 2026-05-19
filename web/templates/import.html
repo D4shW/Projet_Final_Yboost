@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Importer un dossier — ANTS-Lab{% endblock %}
+{% block content %}
+<div class="card rounded-lg p-8">
+    <h1 class="text-2xl font-bold mb-2">Importer un dossier</h1>
+    <p class="text-neutral-400 text-sm mb-6">
+        Vous migrez depuis l'ancien portail ANTS ? Importez votre dossier au format YAML
+        pour restaurer automatiquement vos informations.
+    </p>
+
+    {% if message %}
+    <div class="bg-emerald-950 border border-emerald-900 text-emerald-300 px-4 py-2 rounded mb-4 text-sm">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-4">
+        <div>
+            <label class="block text-sm text-neutral-400 mb-2">Fichier dossier (.yaml / .yml)</label>
+            <input type="file" name="dossier_file" accept=".yaml,.yml" required
+                   class="input w-full px-3 py-2 rounded">
+        </div>
+        <button type="submit" class="btn-primary px-6 py-2 rounded">Importer</button>
+    </form>
+
+    {% if parsed %}
+    <div class="mt-6">
+        <div class="text-xs text-neutral-500 uppercase mb-2">Aperçu des données importées</div>
+        <pre class="bg-neutral-900 p-3 rounded border border-neutral-800 text-xs overflow-x-auto">{{ parsed }}</pre>
+    </div>
+    {% endif %}
+
+    <details class="mt-6 text-xs text-neutral-500">
+        <summary class="cursor-pointer hover:text-neutral-300">📄 Exemple de format attendu</summary>
+        <pre class="bg-neutral-900 p-3 rounded border border-neutral-800 mt-2">dossier:
+  nom: Dupont
+  prenom: Marie
+  date_naissance: 1985-03-12
+  titres:
+    - type: CNI
+      numero: ANTS-2024-0001
+    - type: passeport
+      numero: 24FR12345</pre>
+    </details>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+services:
+  web:
+    build: ./web
+    container_name: antslab-web
+    ports:
+      - "8080:5000"
+    environment:
+      - DB_API_URL=http://db-api:5001
+      - FLASK_SECRET=change_me_in_prod_xyz123
+      - INTERNAL_TOKEN=s3rv1c3_t0k3n_ants_lab
+    depends_on:
+      - db-api
+    networks:
+      - antsnet
+    # Pas de volume sur uploads/ pour que ça reset à chaque restart
+    # (utile en CTF pour nettoyer les webshells uploadés)
+
+  db-api:
+    build: ./db-api
+    container_name: antslab-dbapi
+    # PAS de ports: exposés à l'hôte — seulement accessible depuis le réseau docker
+    expose:
+      - "5001"
+    environment:
+      - INTERNAL_TOKEN=s3rv1c3_t0k3n_ants_lab
+    networks:
+      - antsnet
+    volumes:
+      - ./db-api/data:/app/data
+
+networks:
+  antsnet:
+    driver: bridge

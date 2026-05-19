@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Accueil — ANTS-Lab{% endblock %}
+{% block content %}
+<div class="card rounded-lg p-8">
+    <h1 class="text-3xl font-bold mb-2">Portail des Titres Sécurisés</h1>
+    <p class="text-neutral-400 mb-6">Effectuez vos démarches en ligne : CNI, passeport, permis de conduire, certificat d'immatriculation.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-neutral-900 p-4 rounded border border-neutral-800">
+            <div class="accent text-2xl mb-1">📇</div>
+            <div class="font-semibold">CNI</div>
+            <div class="text-xs text-neutral-500">Carte Nationale d'Identité</div>
+        </div>
+        <div class="bg-neutral-900 p-4 rounded border border-neutral-800">
+            <div class="accent text-2xl mb-1">🛂</div>
+            <div class="font-semibold">Passeport</div>
+            <div class="text-xs text-neutral-500">Demande et renouvellement</div>
+        </div>
+        <div class="bg-neutral-900 p-4 rounded border border-neutral-800">
+            <div class="accent text-2xl mb-1">🚗</div>
+            <div class="font-semibold">Permis</div>
+            <div class="text-xs text-neutral-500">Permis de conduire</div>
+        </div>
+    </div>
+
+    <a href="/login" class="inline-block btn-primary px-6 py-2 rounded">Accéder à mon espace</a>
+
+    <div class="mt-10 pt-6 border-t border-neutral-800 text-xs text-neutral-600">
+        <p class="mb-1">📢 <span class="text-neutral-400">Information :</span> migration depuis l'ancien portail en cours. Vous pouvez importer votre dossier au format YAML depuis votre espace.</p>
+        <p>🔧 <span class="text-neutral-400">Maintenance :</span> les protections anti-bot sont actives sur les espaces personnels.</p>
+    </div>
+</div>
+{% endblock %}

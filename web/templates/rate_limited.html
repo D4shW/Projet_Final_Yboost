@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Trop de requêtes — ANTS-Lab{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto card rounded-lg p-8 text-center">
+    <div class="text-5xl mb-4">⏳</div>
+    <h1 class="text-2xl font-bold mb-2">Trop de requêtes</h1>
+    <p class="text-neutral-400 text-sm mb-4">
+        Notre système de protection anti-énumération a détecté un volume anormal de requêtes
+        depuis votre adresse IP.
+    </p>
+    <p class="text-xs text-neutral-600">
+        Veuillez patienter <span class="accent">{{ wait }}s</span> avant de réessayer.
+    </p>
+    <p class="text-xs text-neutral-700 mt-4">
+        Cette protection ne s'applique pas aux requêtes provenant du réseau interne.
+    </p>
+</div>
+{% endblock %}
